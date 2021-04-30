@@ -38,6 +38,29 @@ class Texp extends CI_Controller {
 						// var_dump($result);
 						echo $result;
 	}
+
+	public function connote_info(){
+		$awb = $this->input->post('awb'); 
+		$token = $this->input->post('token'); 
+		  
+		$endpoint = 'http://apis.mytiki.net:8321/connote/info';  
+		$headers  = [ 
+			'x-access-token:'.$token,
+            'Content-Type: application/json'
+        ];
+ 
+		$arraybody = array('cnno'=>$awb);  
+						$ch = curl_init();
+						curl_setopt($ch, CURLOPT_URL,$endpoint);
+						curl_setopt($ch, CURLOPT_POST, 1);
+						curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+						curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arraybody));           
+						curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+						$result     = curl_exec ($ch);
+						$statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+						// var_dump($result);
+						echo $result;
+	}
  
 	 
 }
