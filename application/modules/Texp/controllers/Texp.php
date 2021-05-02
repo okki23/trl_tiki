@@ -92,7 +92,7 @@ class Texp extends CI_Controller {
 	}
 
 	public function connote_status(){
-		$awb = $this->input->post('awb'); 
+		 
 		$token = $this->input->post('token'); 
 		  
 		$endpoint = 'http://apis.mytiki.net:8321/connote/statuscode';  
@@ -101,18 +101,18 @@ class Texp extends CI_Controller {
             'Content-Type: application/json'
         ];
  
-		$arraybody = array('cnno'=>$awb);  
+		// $arraybody = array('cnno'=>$awb);  
 						$ch = curl_init();
 						curl_setopt($ch, CURLOPT_URL,$endpoint);
 						curl_setopt($ch, CURLOPT_POST, 1);
 						curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-						curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arraybody));           
+						// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arraybody));           
 						curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 						$result     = curl_exec ($ch);
 						$statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE); 
 						echo $result;
 	}
- 
+
 	 
 }
 
