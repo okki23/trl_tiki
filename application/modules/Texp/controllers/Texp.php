@@ -138,6 +138,8 @@ class Texp extends CI_Controller {
 						   'consignee_company'=>$this->input->post('consignee_company'),
 						   'consignee_address1'=>$this->input->post('consignee_address1'),
 						   'consignee_address2'=>$this->input->post('consignee_address2'),
+						   'consignee_address2'=>$this->input->post('consignee_address2'),
+						   'consignee_address2'=>$this->input->post('consignee_address2'),
 							);
 						$ch = curl_init();
 						curl_setopt($ch, CURLOPT_URL,$endpoint);
